@@ -1,3 +1,38 @@
 [gd_scene format=3 uid="uid://dtucgmoxyrbaa"]
 
-[node name="TCmain" type="Node2D" unique_id=1135813596]
+[ext_resource type="Script" uid="uid://mbayoyspe1an" path="res://Frameworks(YourStuff)/TunaCat/character_body_3d.gd" id="1_yonfs"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8phc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w8phc"]
+sky_top_color = Color(0.7736945, 0.19463375, 0.345497, 1)
+
+[sub_resource type="Sky" id="Sky_yonfs"]
+sky_material = SubResource("ProceduralSkyMaterial_w8phc")
+
+[sub_resource type="Environment" id="Environment_o15vm"]
+background_mode = 2
+sky = SubResource("Sky_yonfs")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w8phc"]
+
+[node name="Node3D" type="Node3D" unique_id=1148113129]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=736860697]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.87500906, -0.45153463, -0.9058602)
+use_collision = true
+size = Vector3(9.298279, 1, 2.8530273)
+material = SubResource("StandardMaterial3D_w8phc")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1067615777]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=500010638]
+environment = SubResource("Environment_o15vm")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1695363817]
+script = ExtResource("1_yonfs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=963391958]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3227506, 0)
+shape = SubResource("BoxShape3D_w8phc")
