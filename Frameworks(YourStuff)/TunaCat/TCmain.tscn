@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dtucgmoxyrbaa"]
 
 [ext_resource type="Script" uid="uid://mbayoyspe1an" path="res://Frameworks(YourStuff)/TunaCat/character_body_3d.gd" id="1_yonfs"]
+[ext_resource type="Script" uid="uid://ceukywd8jcpb0" path="res://Frameworks(YourStuff)/TunaCat/rigid_body_3d.gd" id="2_o15vm"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8phc"]
 
@@ -16,12 +17,14 @@ sky = SubResource("Sky_yonfs")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_w8phc"]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_agagh"]
+
 [node name="Node3D" type="Node3D" unique_id=1148113129]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=736860697]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.22672582, -0.45153463, -0.9058602)
+transform = Transform3D(0.9999959, -0.002328854, -0.001750069, 0.002262439, 0.9993114, -0.037038445, 0.0018351215, 0.037034344, 0.9993124, 0.23276111, -0.45185754, -4.3544636)
 use_collision = true
-size = Vector3(9.298279, 1, 2.8530273)
+size = Vector3(9.298279, 1, 9.750244)
 material = SubResource("StandardMaterial3D_w8phc")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1067615777]
@@ -44,3 +47,10 @@ size = Vector3(1, 2.437378, 2.8586426)
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1327973276]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.501352, 0.71868896, -0.1817627)
 size = Vector3(1, 2.437378, 2.8586426)
+
+[node name="Food" type="RigidBody3D" parent="." unique_id=2088014349]
+script = ExtResource("2_o15vm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Food" unique_id=1503614930]
+transform = Transform3D(1, 0, 0, 0, 0.98479563, -0.17371692, 0, 0.17371692, 0.98479563, 2.8603683, 0.80532193, -7.99852)
+shape = SubResource("BoxShape3D_agagh")
