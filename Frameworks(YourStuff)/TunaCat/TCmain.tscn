@@ -20,7 +20,7 @@ sky_top_color = Color(0.7736945, 0.19463375, 0.345497, 1)
 sky_material = SubResource("ProceduralSkyMaterial_w8phc")
 
 [sub_resource type="Environment" id="Environment_o15vm"]
-background_mode = 2
+background_energy_multiplier = 3.6
 sky = SubResource("Sky_yonfs")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o15vm"]
@@ -45,10 +45,10 @@ animations = [{
 [node name="Node3D" type="Node3D" unique_id=1148113129]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=736860697]
-transform = Transform3D(0.9999959, -0.002328854, -0.001750069, 0.002262439, 0.9993114, -0.037038445, 0.0018351215, 0.037034344, 0.9993124, -0.18483153, -0.25662848, -9.648663)
+transform = Transform3D(-0.032542083, 0.0370925, 0.9987817, 0.0022624382, 0.9993113, -0.037038434, -0.9994678, 0.0010543772, -0.0326036, -0.26635632, -0.8392499, -11.514847)
 material_overlay = SubResource("StandardMaterial3D_agagh")
 use_collision = true
-size = Vector3(8.44455, 1, 20.34436)
+size = Vector3(24.545029, 1, 10.360626)
 material = SubResource("StandardMaterial3D_5yy8h")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1067615777]
@@ -73,11 +73,13 @@ pixel_size = 0.001
 sprite_frames = SubResource("SpriteFrames_ujgae")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1300472534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2230153, 0.71868896, -0.1817627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.4678326, 0.71868896, -0.1817627)
+use_collision = true
 size = Vector3(1, 2.437378, 2.8586426)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1327973276]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.501352, 0.71868896, -0.1817627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6608615, 0.71868896, -0.1817627)
+use_collision = true
 size = Vector3(1, 2.437378, 2.8586426)
 
 [node name="Food" type="RigidBody3D" parent="." unique_id=2088014349]
