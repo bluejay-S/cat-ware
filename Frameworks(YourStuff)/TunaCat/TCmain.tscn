@@ -1,9 +1,17 @@
 [gd_scene format=3 uid="uid://dtucgmoxyrbaa"]
 
+[ext_resource type="Texture2D" uid="uid://d2kjspg4tdk08" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/WoodenTable_NoPerspective.PNG" id="1_5yy8h"]
 [ext_resource type="Script" uid="uid://mbayoyspe1an" path="res://Frameworks(YourStuff)/TunaCat/character_body_3d.gd" id="1_yonfs"]
+[ext_resource type="Texture2D" uid="uid://bj0m8f62cbueu" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/BlueCat_Catch.PNG" id="2_agagh"]
 [ext_resource type="Script" uid="uid://ceukywd8jcpb0" path="res://Frameworks(YourStuff)/TunaCat/rigid_body_3d.gd" id="2_o15vm"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_w8phc"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agagh"]
+albedo_color = Color(1, 1, 1, 0.60784316)
+albedo_texture = ExtResource("1_5yy8h")
+albedo_texture_msdf = true
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yy8h"]
+albedo_texture = ExtResource("1_5yy8h")
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w8phc"]
 sky_top_color = Color(0.7736945, 0.19463375, 0.345497, 1)
@@ -15,30 +23,54 @@ sky_material = SubResource("ProceduralSkyMaterial_w8phc")
 background_mode = 2
 sky = SubResource("Sky_yonfs")
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_w8phc"]
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o15vm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5yy8h"]
+atlas = ExtResource("2_agagh")
+region = Rect2(0, 0, 1531, 2103)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ujgae"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5yy8h")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agagh"]
 
 [node name="Node3D" type="Node3D" unique_id=1148113129]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=736860697]
-transform = Transform3D(0.9999959, -0.002328854, -0.001750069, 0.002262439, 0.9993114, -0.037038445, 0.0018351215, 0.037034344, 0.9993124, 0.23276111, -0.45185754, -4.3544636)
+transform = Transform3D(0.9999959, -0.002328854, -0.001750069, 0.002262439, 0.9993114, -0.037038445, 0.0018351215, 0.037034344, 0.9993124, -0.18483153, -0.25662848, -9.648663)
+material_overlay = SubResource("StandardMaterial3D_agagh")
 use_collision = true
-size = Vector3(9.298279, 1, 9.750244)
-material = SubResource("StandardMaterial3D_w8phc")
+size = Vector3(8.44455, 1, 20.34436)
+material = SubResource("StandardMaterial3D_5yy8h")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1067615777]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 2)
+transform = Transform3D(1, 0, 0, 0, 0.8560958, 0.5168173, 0, -0.5168173, 0.8560958, 0.017037757, 2.089197, 0.80589664)
+fov = 96.9
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=500010638]
 environment = SubResource("Environment_o15vm")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1695363817]
+transform = Transform3D(1, 0, 0, 0, 0.523644, 0.85193723, 0, -0.85193723, 0.523644, 0, 0.11407149, 1.1425135)
 script = ExtResource("1_yonfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=963391958]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3227506, 0)
-shape = SubResource("BoxShape3D_w8phc")
+shape = SubResource("CapsuleShape3D_o15vm")
+debug_color = Color(0, 0.53333336, 0.65882355, 0.8784314)
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1223719410]
+transform = Transform3D(1, 0, 0, 0, 0.9984036, 0.056483656, 0, -0.056483656, 0.9984036, 0, 1.1006572, -0.28959325)
+pixel_size = 0.001
+sprite_frames = SubResource("SpriteFrames_ujgae")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1300472534]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.2230153, 0.71868896, -0.1817627)
