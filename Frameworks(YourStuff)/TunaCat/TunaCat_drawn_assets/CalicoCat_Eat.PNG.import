@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3u2y5k7h77du"
-path.s3tc="res://.godot/imported/Sushi_Roe.PNG-d0816d52d498ef8390bdc8d7c4474b99.s3tc.ctex"
+uid="uid://dst6h05riqndy"
+path.s3tc="res://.godot/imported/CalicoCat_Eat.PNG-be994ae15c65a029c94741526a9a14d5.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/Sushi_Roe.PNG"
-dest_files=["res://.godot/imported/Sushi_Roe.PNG-d0816d52d498ef8390bdc8d7c4474b99.s3tc.ctex"]
+source_file="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/CalicoCat_Eat.PNG"
+dest_files=["res://.godot/imported/CalicoCat_Eat.PNG-be994ae15c65a029c94741526a9a14d5.s3tc.ctex"]
 
 [params]
 

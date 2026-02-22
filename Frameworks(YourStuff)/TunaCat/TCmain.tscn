@@ -1,20 +1,11 @@
 [gd_scene format=3 uid="uid://dtucgmoxyrbaa"]
 
-[ext_resource type="Texture2D" uid="uid://d2kjspg4tdk08" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/WoodenTable_NoPerspective.PNG" id="1_5yy8h"]
 [ext_resource type="Script" uid="uid://mbayoyspe1an" path="res://Frameworks(YourStuff)/TunaCat/character_body_3d.gd" id="1_yonfs"]
-[ext_resource type="Texture2D" uid="uid://bj0m8f62cbueu" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/BlueCat_Catch.PNG" id="2_agagh"]
 [ext_resource type="Script" uid="uid://ceukywd8jcpb0" path="res://Frameworks(YourStuff)/TunaCat/rigid_body_3d.gd" id="2_o15vm"]
-[ext_resource type="Texture2D" uid="uid://f3gvaminxw5g" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/BlueCat_Eat.PNG" id="4_ujgae"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agagh"]
-albedo_color = Color(1, 1, 1, 0.60784316)
-albedo_texture_msdf = true
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yy8h"]
-albedo_texture = ExtResource("1_5yy8h")
-uv1_world_triplanar = true
-texture_filter = 1
-texture_repeat = false
+[ext_resource type="Texture2D" uid="uid://dst6h05riqndy" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/CalicoCat_Eat.PNG" id="2_ujgae"]
+[ext_resource type="Texture2D" uid="uid://dvwhu3j1m6ur0" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/CalicoCat_Catch.PNG" id="3_8r2j5"]
+[ext_resource type="Texture2D" uid="uid://3u2y5k7h77du" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/Sushi_Roe.PNG" id="5_8r2j5"]
+[ext_resource type="PackedScene" uid="uid://bbqa3s0oy12qn" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_3D_assets/TunaCatTable.glb" id="5_ujgae"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ujgae"]
 
@@ -33,23 +24,28 @@ sky = SubResource("Sky_ujgae")
 ambient_light_energy = 1.18
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o15vm"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5yy8h"]
-atlas = ExtResource("2_agagh")
-region = Rect2(0, 0, 1531, 2103)
+radius = 0.5415039
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujgae"]
 animations = [{
 "frames": [{
-"duration": 5.0,
-"texture": SubResource("AtlasTexture_5yy8h")
+"duration": 1.0,
+"texture": ExtResource("2_ujgae")
 }, {
 "duration": 1.0,
-"texture": ExtResource("4_ujgae")
+"texture": ExtResource("3_8r2j5")
 }],
-"loop": false,
+"loop": true,
 "name": &"default",
 "speed": 1.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_8r2j5")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
 }]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujgae"]
@@ -57,44 +53,45 @@ albedo_color = Color(0.3161485, 0.2893455, 0.5580106, 0.18431373)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agagh"]
 
-[node name="Node3D" type="Node3D" unique_id=1148113129]
+[sub_resource type="BoxMesh" id="BoxMesh_ujgae"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=736860697]
-transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 0.7725137, -1.5, -17.999998)
-material_overlay = SubResource("StandardMaterial3D_agagh")
-use_collision = true
-size = Vector3(38, 2, 12)
-material = SubResource("StandardMaterial3D_5yy8h")
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_8r2j5"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="Node3D" type="Node3D" unique_id=1148113129]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6808286, 0, 9.46663)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1067615777]
-transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0.82184553, 4, 7)
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0.63645506, 4, 6.512763)
 attributes = SubResource("CameraAttributesPhysical_ujgae")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=500010638]
 environment = SubResource("Environment_8r2j5")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1695363817]
-transform = Transform3D(1, 0, 0, 0, 0.523644, 0.85193723, 0, -0.85193723, 0.523644, 1, 0.11407149, 1.1425135)
+transform = Transform3D(1, 0, 0, 0, 0.523644, 0.85193723, 0, -0.85193723, 0.523644, 1, 0.11407149, 1.6328578)
 script = ExtResource("1_yonfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=963391958]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3227506, 0)
+transform = Transform3D(1, 0, 0, 0, 0.93030894, 0.3667773, 0, -0.3667773, 0.93030894, -0.102446556, 2.1983323, -1.2626612)
 shape = SubResource("CapsuleShape3D_o15vm")
 debug_color = Color(0, 0.53333336, 0.65882355, 0.8784314)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1223719410]
-transform = Transform3D(1, 0, 0, 0, 0.99840367, 0.056483656, 0, -0.056483656, 0.99840367, 0, 1.2986413, -0.4112843)
+transform = Transform3D(1, 0, 0, 0, 0.99522793, 0.09758282, 0, -0.09758282, 0.99522793, 0, 1.36181, -1.0711479)
 pixel_size = 0.002
 sprite_frames = SubResource("SpriteFrames_ujgae")
+autoplay = "default"
+frame_progress = 0.47224495
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1300472534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8779373, 0.71868896, -0.1817627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.562639, 0.71868896, -0.1817627)
 visible = false
 use_collision = true
 size = Vector3(1, 2.437378, 2.8586426)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1327973276]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.382096, 0.71868896, -0.1817627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.7182918, 0.71868896, -0.1817627)
 visible = false
 use_collision = true
 size = Vector3(1, 2.437378, 2.8586426)
@@ -104,5 +101,23 @@ material = SubResource("StandardMaterial3D_ujgae")
 script = ExtResource("2_o15vm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Food" unique_id=1503614930]
-transform = Transform3D(1, 0, 0, 0, 0.98479563, -0.17371692, 0, 0.17371692, 0.98479563, 2.8603683, 0.80532193, -27.48811)
+transform = Transform3D(1, 0, 0, 0, 0.99999994, 0, 0, 0, 0.99999994, 1.6712365, -0.33761144, -26.4721)
 shape = SubResource("BoxShape3D_agagh")
+
+[node name="Sprite3D" type="Sprite3D" parent="Food/CollisionShape3D" unique_id=1722547151]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, 0, 0.5021267, -0.08857536)
+billboard = 1
+texture = ExtResource("5_8r2j5")
+
+[node name="TunaCatTable" parent="." unique_id=249235829 instance=ExtResource("5_ujgae")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.63043404, -1.000001, -15.826019)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TunaCatTable" unique_id=1391642143]
+transform = Transform3D(10, 0, 0, 0, 1, 0, 0, 0, 32, 0, 0, 1)
+visible = false
+mesh = SubResource("BoxMesh_ujgae")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="TunaCatTable/MeshInstance3D" unique_id=312831771]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TunaCatTable/MeshInstance3D/StaticBody3D" unique_id=1357308808]
+shape = SubResource("ConcavePolygonShape3D_8r2j5")

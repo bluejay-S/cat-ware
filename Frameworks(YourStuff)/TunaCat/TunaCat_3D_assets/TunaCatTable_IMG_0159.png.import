@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://3u2y5k7h77du"
-path.s3tc="res://.godot/imported/Sushi_Roe.PNG-d0816d52d498ef8390bdc8d7c4474b99.s3tc.ctex"
+uid="uid://b7utne4klwwd5"
+path.s3tc="res://.godot/imported/TunaCatTable_IMG_0159.png-2f148f732fb9bf324148c12da26d11f0.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "91f39a641dcc13e5c4abf8a4c5554c00"
+}
 
 [deps]
 
-source_file="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/Sushi_Roe.PNG"
-dest_files=["res://.godot/imported/Sushi_Roe.PNG-d0816d52d498ef8390bdc8d7c4474b99.s3tc.ctex"]
+source_file="res://Frameworks(YourStuff)/TunaCat/TunaCat_3D_assets/TunaCatTable_IMG_0159.png"
+dest_files=["res://.godot/imported/TunaCatTable_IMG_0159.png-2f148f732fb9bf324148c12da26d11f0.s3tc.ctex"]
 
 [params]
 
