@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://mbayoyspe1an" path="res://Frameworks(YourStuff)/TunaCat/character_body_3d.gd" id="1_yonfs"]
 [ext_resource type="Texture2D" uid="uid://bj0m8f62cbueu" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/BlueCat_Catch.PNG" id="2_agagh"]
 [ext_resource type="Script" uid="uid://ceukywd8jcpb0" path="res://Frameworks(YourStuff)/TunaCat/rigid_body_3d.gd" id="2_o15vm"]
+[ext_resource type="Texture2D" uid="uid://f3gvaminxw5g" path="res://Frameworks(YourStuff)/TunaCat/TunaCat_drawn_assets/BlueCat_Eat.PNG" id="4_ujgae"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_agagh"]
 albedo_color = Color(1, 1, 1, 0.60784316)
@@ -11,27 +12,25 @@ albedo_texture_msdf = true
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5yy8h"]
 albedo_texture = ExtResource("1_5yy8h")
-uv1_scale = Vector3(0.07, 0.09, 0.04)
-uv1_offset = Vector3(0.45, 1, 0.96)
-uv1_triplanar = true
 uv1_world_triplanar = true
-texture_filter = 0
+texture_filter = 1
 texture_repeat = false
-
-[sub_resource type="Environment" id="Environment_5yy8h"]
 
 [sub_resource type="CameraAttributesPhysical" id="CameraAttributesPhysical_ujgae"]
 
-[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_w8phc"]
-sky_top_color = Color(0.8606846, 0.79991347, 0.7939989, 1)
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_5yy8h"]
+sky_top_color = Color(0.91628313, 0.8274499, 0.61804914, 1)
+sky_horizon_color = Color(0.89074063, 0.48480475, 0.22580338, 1)
+ground_horizon_color = Color(0.6459035, 0.4364445, 0.26818022, 1)
 
-[sub_resource type="Sky" id="Sky_yonfs"]
-sky_material = SubResource("ProceduralSkyMaterial_w8phc")
+[sub_resource type="Sky" id="Sky_ujgae"]
+sky_material = SubResource("ProceduralSkyMaterial_5yy8h")
 
-[sub_resource type="Environment" id="Environment_o15vm"]
+[sub_resource type="Environment" id="Environment_8r2j5"]
 background_mode = 2
-background_energy_multiplier = 0.89
-sky = SubResource("Sky_yonfs")
+background_energy_multiplier = 0.98
+sky = SubResource("Sky_ujgae")
+ambient_light_energy = 1.18
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o15vm"]
 
@@ -42,35 +41,40 @@ region = Rect2(0, 0, 1531, 2103)
 [sub_resource type="SpriteFrames" id="SpriteFrames_ujgae"]
 animations = [{
 "frames": [{
-"duration": 1.0,
+"duration": 5.0,
 "texture": SubResource("AtlasTexture_5yy8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ujgae")
 }],
-"loop": true,
+"loop": false,
 "name": &"default",
-"speed": 5.0
+"speed": 1.0
 }]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ujgae"]
+albedo_color = Color(0.3161485, 0.2893455, 0.5580106, 0.18431373)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_agagh"]
 
 [node name="Node3D" type="Node3D" unique_id=1148113129]
 
 [node name="CSGBox3D" type="CSGBox3D" parent="." unique_id=736860697]
-transform = Transform3D(0.9999998, 0, 0, 0, 1, 0, 0, 0, 0.99999976, 0.7725142, -1, -10.999999)
+transform = Transform3D(-4.371138e-08, 0, 0.99999976, 0, 1, 0, -0.9999998, 0, -4.371138e-08, 0.7725137, -1.5, -17.999998)
 material_overlay = SubResource("StandardMaterial3D_agagh")
 use_collision = true
-size = Vector3(13, 1, 25)
+size = Vector3(38, 2, 12)
 material = SubResource("StandardMaterial3D_5yy8h")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1067615777]
-transform = Transform3D(1, 0, 0, 0, 0.8560958, 0.5168173, 0, -0.5168173, 0.8560958, 1.0170377, 5.953186, 4.8823485)
-environment = SubResource("Environment_5yy8h")
+transform = Transform3D(1, 0, 0, 0, 0.9659259, 0.25881907, 0, -0.25881907, 0.9659258, 0.82184553, 4, 7)
 attributes = SubResource("CameraAttributesPhysical_ujgae")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=500010638]
-environment = SubResource("Environment_o15vm")
+environment = SubResource("Environment_8r2j5")
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=1695363817]
-transform = Transform3D(1, 0, 0, 0, 0.523644, 0.85193723, 0, -0.85193723, 0.523644, 0, 0.11407149, 1.1425135)
+transform = Transform3D(1, 0, 0, 0, 0.523644, 0.85193723, 0, -0.85193723, 0.523644, 1, 0.11407149, 1.1425135)
 script = ExtResource("1_yonfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=963391958]
@@ -79,23 +83,26 @@ shape = SubResource("CapsuleShape3D_o15vm")
 debug_color = Color(0, 0.53333336, 0.65882355, 0.8784314)
 
 [node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="CharacterBody3D" unique_id=1223719410]
-transform = Transform3D(1, 0, 0, 0, 0.9984036, 0.056483656, 0, -0.056483656, 0.9984036, 0, 1.1006572, -0.28959325)
-pixel_size = 0.001
+transform = Transform3D(1, 0, 0, 0, 0.99840367, 0.056483656, 0, -0.056483656, 0.99840367, 0, 1.2986413, -0.4112843)
+pixel_size = 0.002
 sprite_frames = SubResource("SpriteFrames_ujgae")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="." unique_id=1300472534]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6615467, 0.71868896, -0.1817627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.8779373, 0.71868896, -0.1817627)
+visible = false
 use_collision = true
 size = Vector3(1, 2.437378, 2.8586426)
 
 [node name="CSGBox3D3" type="CSGBox3D" parent="." unique_id=1327973276]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.5766215, 0.71868896, -0.1817627)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.382096, 0.71868896, -0.1817627)
+visible = false
 use_collision = true
 size = Vector3(1, 2.437378, 2.8586426)
+material = SubResource("StandardMaterial3D_ujgae")
 
 [node name="Food" type="RigidBody3D" parent="." unique_id=2088014349]
 script = ExtResource("2_o15vm")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Food" unique_id=1503614930]
-transform = Transform3D(1, 0, 0, 0, 0.98479563, -0.17371692, 0, 0.17371692, 0.98479563, 2.8603683, 0.80532193, -7.99852)
+transform = Transform3D(1, 0, 0, 0, 0.98479563, -0.17371692, 0, 0.17371692, 0.98479563, 2.8603683, 0.80532193, -27.48811)
 shape = SubResource("BoxShape3D_agagh")
